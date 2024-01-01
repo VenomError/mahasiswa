@@ -25,7 +25,7 @@ class JurusanController extends MainController
       $this->redirectData('error', $e->getMessage());
     }
     $data = [
-      "title" => "Mahasiswa",
+      "title" => "Jurusan",
       "navJurusan" => "active",
       "page" => $this->page,
       'jurusan' => $jurusan,

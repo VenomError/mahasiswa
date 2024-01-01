@@ -25,7 +25,7 @@ class SemesterController extends MainController
       $this->redirectData('error', $e->getMessage());
     }
     $data = [
-      "title" => "Mahasiswa",
+      "title" => "Semester",
       "navSemester" => "active",
       "page" => $this->page,
       'semester' => $semester,

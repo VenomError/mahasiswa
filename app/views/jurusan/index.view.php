@@ -59,7 +59,7 @@
     <div class="row">
       <div class="col-12">
         <div class="section-body">
-          <h2 class="section-title">Edit New Jurusan</h2>
+          <h2 class="section-title">Create New Jurusan</h2>
           <div class="row">
             <div class="col-12">
               <div class="card">

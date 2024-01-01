@@ -19,9 +19,24 @@ if (isset($data['navJurusan'])) {
   echo "active";
 }
 ?>"><a class="nav-link" href="<?= BASE_PATH ?>jurusan"><i class="fas fa-graduation-cap"></i> <span>Jurusan</span></a></li>
+
 <li class="
 <?php
 if (isset($data['navSemester'])) {
   echo "active";
 }
 ?>"><a class="nav-link" href="<?= BASE_PATH ?>semester"><i class="fas fa-school"></i><span>Semester</span></a></li>
+
+<li class="
+<?php
+if (isset($data['navKelas'])) {
+  echo "active";
+}
+?>"><a class="nav-link" href="<?= BASE_PATH ?>kelas"><i class="fas fa-chalkboard-teacher"></i><span>Kelas</span></a></li>
+
+<li class="
+<?php
+if (isset($data['navMatakuliah'])) {
+  echo "active";
+}
+?>"><a class="nav-link" href="<?= BASE_PATH ?>matakuliah"><i class="fas fa-book-open"></i><span>Matakuliah</span></a></li>

@@ -1,7 +1,7 @@
 <div class="row">
   <div class="col-12 col-md-8 col-lg-8">
     <div class="section-body">
-      <h2 class="section-title">Data Semester</h2>
+      <h2 class="section-title">Data Matakuliah</h2>
       <div class="row">
         <div class="col-12">
           <div class="card">
@@ -14,8 +14,8 @@
 
                   <thead>
                     <tr>
-                      <th>Nama Semester</th>
-                      <th>Jumlah Mahasiswa</th>
+                      <th>Nama Matakuliah</th>
+                      <th>Jumlah Dosen </th>
                       <th>Action</th>
                     </tr>
                   </thead>
@@ -24,22 +24,22 @@
                     <?php
 
 
-                    foreach ($data['semester'] as $j) {
+                    foreach ($data['matakuliah'] as $j) {
                     ?>
                       <tr>
-                        <td><?= $j['nama_semester'] ?></td>
+                        <td><?= $j['nama_matakuliah'] ?></td>
                         <td>
                           <?php
                           $count = new Model();
-                          $count->table('mahasiswa');
-                          $jml =  $count->select('mahasiswa*.')->where(['semester' => ($j['id_semester'])])->count();
+                          $count->table('dosen');
+                          $jml =  $count->select('dosen*.')->where(['matakuliah' => ($j['id_matakuliah'])])->count();
                           echo $jml;
                           ?>
                         </td>
                         <td class="btn-group " role="group" aria-label="Group">
-                          <a href="<?= BASE_PATH ?>semester/detail/<?= $j['id_semester'] ?>" class="btn btn-icon btn-primary btn-sm text-light" data-toggle="tooltip" title="Detail"> <i><i class="far fa-file"></i></i></a>
-                          <a href="<?= BASE_PATH ?>semester/edit/<?= $j['id_semester'] ?>" class="btn btn-icon btn-warning btn-sm text-light" data-toggle="tooltip" title="Edit"> <i><i class="fas fa-edit"></i></i></a>
-                          <a href="<?= BASE_PATH ?>semester/remove/<?= $j['id_semester'] ?>" class="btn btn-icon btn-danger btn-sm text-light" data-toggle="tooltip" title="Remove"> <i><i class="fas fa-times"></i></i></a>
+                          <a href="<?= BASE_PATH ?>matakuliah/detail/<?= $j['id_matakuliah'] ?>" class="btn btn-icon btn-primary btn-sm text-light" data-toggle="tooltip" title="Detail"> <i><i class="far fa-file"></i></i></a>
+                          <a href="<?= BASE_PATH ?>matakuliah/edit/<?= $j['id_matakuliah'] ?>" class="btn btn-icon btn-warning btn-sm text-light" data-toggle="tooltip" title="Edit"> <i><i class="fas fa-edit"></i></i></a>
+                          <a href="<?= BASE_PATH ?>matakuliah/remove/<?= $j['id_matakuliah'] ?>" class="btn btn-icon btn-danger btn-sm text-light" data-toggle="tooltip" title="Remove"> <i><i class="fas fa-times"></i></i></a>
                         </td>
                       </tr>
                     <?php }
@@ -59,16 +59,16 @@
     <div class="row">
       <div class="col-12">
         <div class="section-body">
-          <h2 class="section-title">Create New semester</h2>
+          <h2 class="section-title">Create New Matakuliah</h2>
           <div class="row">
             <div class="col-12">
               <div class="card">
                 <div class="card-body">
-                  <form action="<?= BASE_PATH ?>semester/store" method="post" class="needs-validation" novalidate enctype="multipart/form-data">
+                  <form action="<?= BASE_PATH ?>matakuliah/store" method="post" class="needs-validation" novalidate enctype="multipart/form-data">
                     <div class="form-group">
-                      <label>Nama semester</label>
-                      <input type="text" class="form-control" required="" name="nama" placeholder="Nama semester">
-                      <div class="invalid-feedback">Input Nama semester</div>
+                      <label>Nama matakuliah</label>
+                      <input type="text" class="form-control" required="" name="nama" placeholder="Nama matakuliah">
+                      <div class="invalid-feedback">Input Nama matakuliah</div>
                     </div>
                     <div class="form-group">
                       <button type="submit" name="create" class="btn btn-primary btn-icon icon-left" data-toggle="tooltip" title="Create">
@@ -96,16 +96,16 @@
       ?>
       <div class="col-12 <?= $dispay ?>">
         <div class="section-body">
-          <h2 class="section-title">Edit semester</h2>
+          <h2 class="section-title">Edit matakuliah</h2>
           <div class="row">
             <div class="col-12">
               <div class="card">
                 <div class="card-body">
-                  <form action="<?= BASE_PATH ?>semester/update" method="post" class="needs-validation" novalidate enctype="multipart/form-data">
+                  <form action="<?= BASE_PATH ?>matakuliah/update" method="post" class="needs-validation" novalidate enctype="multipart/form-data">
                     <div class="form-group">
-                      <label>Nama Semester</label>
-                      <input type="text" class="form-control" required="" name="nama" placeholder="Nama Semester" value="<?= $nama ?>">
-                      <input type="hidden" class="form-control" required="" name="id" placeholder="Nama Semester" value="<?= $id ?>">
+                      <label>Nama matakuliah</label>
+                      <input type="text" class="form-control" required="" name="nama" placeholder="Nama matakuliah" value="<?= $nama ?>">
+                      <input type="hidden" class="form-control" required="" name="id" placeholder="Nama matakuliah" value="<?= $id ?>">
                       <div class="invalid-feedback">Input Nama </div>
                     </div>
                     <div class="form-group">
