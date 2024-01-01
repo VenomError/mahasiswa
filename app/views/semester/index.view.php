@@ -1,7 +1,7 @@
 <div class="row">
   <div class="col-12 col-md-8 col-lg-8">
     <div class="section-body">
-      <h2 class="section-title">Data Jurusan</h2>
+      <h2 class="section-title">Data Semester</h2>
       <div class="row">
         <div class="col-12">
           <div class="card">
@@ -14,7 +14,7 @@
 
                   <thead>
                     <tr>
-                      <th>Nama Jurusan</th>
+                      <th>Nama Semester</th>
                       <th>Jumlah Mahasiswa</th>
                       <th>Action</th>
                     </tr>
@@ -24,22 +24,22 @@
                     <?php
 
 
-                    foreach ($data['jurusan'] as $j) {
+                    foreach ($data['semester'] as $j) {
                     ?>
                       <tr>
-                        <td><?= $j['nama_jurusan'] ?></td>
+                        <td><?= $j['nama_semester'] ?></td>
                         <td>
                           <?php
                           $count = new Model();
                           $count->table('mahasiswa');
-                          $jml =  $count->select('mahasiswa*.')->where(['jurusan' => ($j['id_jurusan'])])->count();
+                          $jml =  $count->select('mahasiswa*.')->where(['semester' => ($j['id_semester'])])->count();
                           echo $jml;
                           ?>
                         </td>
                         <td class="btn-group " role="group" aria-label="Group">
-                          <a href="<?= BASE_PATH ?>jurusan/detail/<?= $j['id_jurusan'] ?>" class="btn btn-icon btn-primary btn-sm text-light" data-toggle="tooltip" title="Detail"> <i><i class="far fa-file"></i></i></a>
-                          <a href="<?= BASE_PATH ?>jurusan/edit/<?= $j['id_jurusan'] ?>" class="btn btn-icon btn-warning btn-sm text-light" data-toggle="tooltip" title="Edit"> <i><i class="fas fa-edit"></i></i></a>
-                          <a href="<?= BASE_PATH ?>jurusan/remove/<?= $j['id_jurusan'] ?>" class="btn btn-icon btn-danger btn-sm text-light" data-toggle="tooltip" title="Remove"> <i><i class="fas fa-times"></i></i></a>
+                          <a href="<?= BASE_PATH ?>semester/detail/<?= $j['id_semester'] ?>" class="btn btn-icon btn-primary btn-sm text-light" data-toggle="tooltip" title="Detail"> <i><i class="far fa-file"></i></i></a>
+                          <a href="<?= BASE_PATH ?>semester/edit/<?= $j['id_semester'] ?>" class="btn btn-icon btn-warning btn-sm text-light" data-toggle="tooltip" title="Edit"> <i><i class="fas fa-edit"></i></i></a>
+                          <a href="<?= BASE_PATH ?>semester/remove/<?= $j['id_semester'] ?>" class="btn btn-icon btn-danger btn-sm text-light" data-toggle="tooltip" title="Remove"> <i><i class="fas fa-times"></i></i></a>
                         </td>
                       </tr>
                     <?php }
@@ -59,16 +59,16 @@
     <div class="row">
       <div class="col-12">
         <div class="section-body">
-          <h2 class="section-title">Edit New Jurusan</h2>
+          <h2 class="section-title">Edit New semester</h2>
           <div class="row">
             <div class="col-12">
               <div class="card">
                 <div class="card-body">
-                  <form action="<?= BASE_PATH ?>jurusan/store" method="post" class="needs-validation" novalidate enctype="multipart/form-data">
+                  <form action="<?= BASE_PATH ?>semester/store" method="post" class="needs-validation" novalidate enctype="multipart/form-data">
                     <div class="form-group">
-                      <label>Nama Jurusan</label>
-                      <input type="text" class="form-control" required="" name="nama" placeholder="Nama Jurusan">
-                      <div class="invalid-feedback">Input Nama Jurusan</div>
+                      <label>Nama semester</label>
+                      <input type="text" class="form-control" required="" name="nama" placeholder="Nama semester">
+                      <div class="invalid-feedback">Input Nama semester</div>
                     </div>
                     <div class="form-group">
                       <button type="submit" name="create" class="btn btn-primary btn-icon icon-left" data-toggle="tooltip" title="Create">
@@ -96,16 +96,16 @@
       ?>
       <div class="col-12 <?= $dispay ?>">
         <div class="section-body">
-          <h2 class="section-title">Edit Jurusan</h2>
+          <h2 class="section-title">Edit semester</h2>
           <div class="row">
             <div class="col-12">
               <div class="card">
                 <div class="card-body">
-                  <form action="<?= BASE_PATH ?>jurusan/update" method="post" class="needs-validation" novalidate enctype="multipart/form-data">
+                  <form action="<?= BASE_PATH ?>semester/update" method="post" class="needs-validation" novalidate enctype="multipart/form-data">
                     <div class="form-group">
-                      <label>Nama Jurusan</label>
-                      <input type="text" class="form-control" required="" name="nama" placeholder="Nama Jurusan" value="<?= $nama ?>">
-                      <input type="hidden" class="form-control" required="" name="id" placeholder="Nama Jurusan" value="<?= $id ?>">
+                      <label>Nama Semester</label>
+                      <input type="text" class="form-control" required="" name="nama" placeholder="Nama Semester" value="<?= $nama ?>">
+                      <input type="hidden" class="form-control" required="" name="id" placeholder="Nama Semester" value="<?= $id ?>">
                       <div class="invalid-feedback">Input Nama </div>
                     </div>
                     <div class="form-group">

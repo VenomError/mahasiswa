@@ -59,8 +59,42 @@ class JurusanController extends MainController
           'nama_jurusan' => $nama,
         ];
       try {
-        $this->model('jurusan')->where(['id_jurusan' => $id])->update($data);
+        $this->model('jurusan')->select()->where(['id_jurusan' => $id])->update($data);
         $this->redirectData('jurusan', ['success' => 'Edit jurusan Success']);
+      } catch (Exception $e) {
+        $this->redirectData('jurusan', ['error' => $e->getMessage()]);
+      }
+    } else {
+      $this->redirect('jurusan');
+    }
+  }
+
+  public function remove($id)
+  {
+    try {
+      $this->model('jurusan')->select()->where(['id_jurusan' => $id])->delete();
+      $this->redirectData('jurusan', ['success' => 'Berhasil Hapus Jurusan']);
+    } catch (Exception $e) {
+      $this->redirectData('jurusan', ['error' => $e->getMessage()]);
+    }
+  }
+
+  public function store()
+  {
+    if (isset($_POST['create'])) {
+      $id = $_POST['id'];
+      $nama = $_POST['nama'];
+      $data =
+        [
+          'nama_jurusan' => $nama,
+        ];
+      $mhs = [
+        'jurusan' => 'null'
+      ];
+      try {
+        // $this->model('mahasiswa')->select()->where(['jurusan' => $id])->update($mhs);
+        $this->model('jurusan')->create($data);
+        $this->redirectData('jurusan', ['success' => 'Create jurusan Success']);
       } catch (Exception $e) {
         $this->redirectData('jurusan', ['error' => $e->getMessage()]);
       }
