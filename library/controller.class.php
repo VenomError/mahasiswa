@@ -36,7 +36,7 @@ class Controller
 
   public function redirect($url = "")
   {
-    header('location: ' . BASE_PATH . DS . $url);
+    header('location: ' . BASE_PATH . $url);
   }
 
   public function redirectData($url = "", $data = array())
