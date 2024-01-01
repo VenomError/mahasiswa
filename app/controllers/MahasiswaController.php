@@ -195,7 +195,26 @@ class MahasiswaController extends MainController
     }
   }
 
-  public function detail()
+  public function detail($id)
   {
+    try {
+      $mahasiswa = $this->model('mahasiswa')
+        ->select('mahasiswa.*, jurusan.*, semester.*, kelas.*',)
+        ->join('jurusan', 'mahasiswa.jurusan = jurusan.id_jurusan')
+        ->join('semester', 'mahasiswa.semester = semester.id_semester')
+        ->join('kelas', 'mahasiswa.kelas = kelas.id_kelas')
+        ->where(['id_mahasiswa' => $id])
+        ->get();
+    } catch (Exception $e) {
+      $this->redirectData('mahasiswa', ['error' => $e->getMessage()]);
+    }
+    $data = [
+      'title' => 'Mahasiswa Detail',
+      'navMHS' => 'active',
+      'page' => $this->page,
+      'mahasiswa' => $mahasiswa
+    ];
+
+    $this->template('admin', $data, 'mahasiswa/detail', $this->component);
   }
 }

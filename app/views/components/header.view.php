@@ -19,6 +19,10 @@
 <link rel="stylesheet" href="<?= BASE_ASSETS ?>assets/modules/bootstrap-tagsinput/dist/bootstrap-tagsinput.css">
 <link rel="stylesheet" href="<?= BASE_ASSETS ?>assets/modules/izitoast/css/iziToast.min.css">
 
+<link rel="stylesheet" href="<?= BASE_ASSETS ?>assets/modules/bootstrap-social/bootstrap-social.css">
+<link rel="stylesheet" href="<?= BASE_ASSETS ?>assets/modules/owlcarousel2/dist/assets/owl.carousel.min.css">
+<link rel="stylesheet" href="<?= BASE_ASSETS ?>assets/modules/owlcarousel2/dist/assets/owl.theme.default.min.css">
+
 
 
 <!-- Template CSS -->

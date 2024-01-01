@@ -22,12 +22,16 @@
 <script src="<?= BASE_ASSETS ?>assets/modules/select2/dist/js/select2.full.min.js"></script>
 <script src="<?= BASE_ASSETS ?>assets/modules/jquery-selectric/jquery.selectric.min.js"></script>
 <script src="<?= BASE_ASSETS ?>assets/modules/izitoast/js/iziToast.min.js"></script>
+<script src="<?= BASE_ASSETS ?>assets/modules/owlcarousel2/dist/owl.carousel.min.js"></script>
+
 
 
 <!-- Page Specific JS File -->
 <script src="<?= BASE_ASSETS ?>assets/js/page/modules-datatables.js"></script>
 <script src="<?= BASE_ASSETS ?>assets/js/page/forms-advanced-forms.js"></script>
 <script src="<?= BASE_ASSETS ?>assets/js/page/modules-toastr.js"></script>
+<script src="<?= BASE_ASSETS ?>assets/js/page/components-user.js"></script>
+
 
 
 
@@ -35,17 +39,16 @@
 <script src="<?= BASE_ASSETS ?>assets/js/scripts.js"></script>
 <script src="<?= BASE_ASSETS ?>assets/js/custom.js"></script>
 
-
 <?php
-function toaster($type = 'success', $title, $message, $position = 'topRight')
+function toaster($type = 'success', $title = '', $pesan = '')
 {
-  echo '
+  echo '?>
     <script>
         $(document).ready(function() {
             iziToast.' . $type . '({
                 title: "' . $title . '",
-                message: "' . $message . '",
-                position: "' . $position . '"
+                message: "' . $pesan . '",
+                position: "topRight"
             });
         });
     </script>
@@ -60,9 +63,8 @@ if (isset($_SESSION['success'])) {
 if (isset($_SESSION['error'])) {
   toaster('error', 'Error', $_SESSION['error']);
   unset($_SESSION['error']);
-}
+} ?>
 
-?>
 <!-- <script>
   $(document).ready(function() {
     // Cek apakah session 'redirect' ada
