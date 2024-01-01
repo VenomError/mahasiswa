@@ -15,6 +15,12 @@ if (isset($data['navMHS'])) {
 ?>"><a class="nav-link" href="<?= BASE_PATH ?>mahasiswa"><i class="fas fa-user-graduate"></i> <span>Mahasiswa</span></a></li>
 <li class="
 <?php
+if (isset($data['navDosen'])) {
+  echo "active";
+}
+?>"><a class="nav-link" href="<?= BASE_PATH ?>dosen"><i class="fas fa-user-graduate"></i> <span>Dosen</span></a></li>
+<li class="
+<?php
 if (isset($data['navJurusan'])) {
   echo "active";
 }
@@ -40,3 +46,17 @@ if (isset($data['navMatakuliah'])) {
   echo "active";
 }
 ?>"><a class="nav-link" href="<?= BASE_PATH ?>matakuliah"><i class="fas fa-book-open"></i><span>Matakuliah</span></a></li>
+
+<li class="
+<?php
+if (isset($data['navRuangan'])) {
+  echo "active";
+}
+?>"><a class="nav-link" href="<?= BASE_PATH ?>ruangan"><i class="fas fa-chalkboard"></i><span>Ruangan</span></a></li>
+
+<li class="
+<?php
+if (isset($data['navJadwal'])) {
+  echo "active";
+}
+?>"><a class="nav-link" href="<?= BASE_PATH ?>jadwal"><i class="fas fa-calendar"></i><span>Jadwal</span></a></li>
