@@ -14,6 +14,60 @@ class JadwalController extends MainController
       'sidebar' => 'components/sidebar',
     ];
     $this->getPage('Jadwal');
+    $jadwal =  $this->model('jadwal')->select()->get();
+
+    foreach ($jadwal as $key => $value) {
+      $today = date('N');
+      $hari = strtolower($value['hari']);
+      $nowTime = time();
+      $mulai = strtotime($value['mulai']);
+      $selesai = strtotime($value['selesai']);
+      $id = $value['id_jadwal'];
+
+
+      // var_dump($hari);
+      if ($today === $hari) {
+        if ($nowTime > $mulai && $nowTime < $selesai) {
+          $status = 'dimuali';
+          $selisih = abs($selesai - $nowTime);
+          $this->model('jadwal')->where(['id_jadwal' => $id])
+            ->update([
+              'status' => '1',
+              'keterangan' => gmdate("H:i", $selisih) . ' minutes until its finished',
+            ]);
+        } elseif ($mulai > $nowTime) {
+          $status = 'onGoing';
+          $selisih = abs($mulai - $nowTime);
+          $this->model('jadwal')->where(['id_jadwal' => $id])
+            ->update([
+              'status' => '4',
+              'keterangan' => gmdate("H:i", $selisih) . ' minutes will begin',
+            ]);
+        } elseif ($selesai < $nowTime) {
+          $status = 'selesai';
+          $selisih = abs($nowTime - $selesai);
+          $this->model('jadwal')->where(['id_jadwal' => $id])
+            ->update([
+              'status' => '2',
+              'keterangan' => 'finished ' . gmdate("H:i", $selisih) . ' minutes ago',
+            ]);
+          $selisih = abs($nowTime - $selesai);
+        } else {
+          $status = 'panding';
+          $this->model('jadwal')->where(['id_jadwal' => $id])->update([
+            'status' => '3',
+            'keterangan' => 'Panding',
+          ]);
+        }
+      } else {
+        $status = 'onGoing';
+        $this->model('jadwal')->where(['id_jadwal' => $id])->update([
+          'status' => '4',
+          'keterangan' => 'Not for today',
+
+        ]);
+      }
+    }
   }
 
 

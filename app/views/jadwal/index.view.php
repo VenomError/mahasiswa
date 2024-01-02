@@ -24,6 +24,7 @@
                       <th>Mulai</th>
                       <th>Selesai</th>
                       <th>Status</th>
+                      <th>Keterangan</th>
                       <th>Action</th>
                     </tr>
                   </thead>
@@ -55,6 +56,7 @@
                         <td>
                           <span class="badge badge-<?= $style ?>"><?= $j['nama_status'] ?></span>
                         </td>
+                        <td><?= $j['keterangan'] ?></td>
                         <td class="btn-group " role="group" aria-label="Group">
                           <a href="<?= BASE_PATH ?>jadwal/detail/<?= $j['id_jadwal'] ?>" class="btn btn-icon btn-primary btn-sm text-light" data-toggle="tooltip" title="Detail"><i class="far fa-file"></i></a>
                           <a href="<?= BASE_PATH ?>jadwal/edit/<?= $j['id_jadwal'] ?>" class="btn btn-icon btn-warning btn-sm text-light" data-toggle="tooltip" title="Edit"><i class="fas fa-edit"></i></a>
