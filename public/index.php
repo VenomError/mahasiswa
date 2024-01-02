@@ -1,7 +1,6 @@
 <?php
 
 session_start();
-
 // membuat konstanta ROOT
 define("ROOT", dirname(dirname(__FILE__)));
 define('DS', DIRECTORY_SEPARATOR);
@@ -92,5 +91,6 @@ function callHook()
     exit();
   }
 }
+date_default_timezone_set('' . TIME_ZONE . '');
 setReporting();
 callHook();

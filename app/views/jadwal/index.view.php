@@ -38,11 +38,13 @@
                         $style = 'success';
                       } else if ($j['id_status'] === 2) {
                         $style = 'danger';
-                      } else {
+                      } else if ($j['id_status'] === 3) {
                         $style = 'warning';
-                      }   ?>
+                      } else {
+                        $style = 'info';
+                      } ?>
                       <tr>
-                        <td><?= $j['hari'] ?></td>
+                        <td><?= $j['nama_hari'] ?></td>
                         <td><?= $j['nama_ruangan'] ?></td>
                         <td>
                           <?= $j['nama_dosen']
@@ -51,9 +53,6 @@
                         <td><?= $j['mulai'] ?></td>
                         <td><?= $j['selesai'] ?></td>
                         <td>
-                          <?php
-
-                          ?>
                           <span class="badge badge-<?= $style ?>"><?= $j['nama_status'] ?></span>
                         </td>
                         <td class="btn-group " role="group" aria-label="Group">
