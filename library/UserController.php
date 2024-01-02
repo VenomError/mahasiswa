@@ -17,7 +17,7 @@ class UserController extends Controller
   public $page = "";
   public function __construct()
   {
-    if (isset($_SESSION['username']) and empty($_SESSION['password'])) {
+    if (isset($_SESSION['username']) && $_SESSION['password']) {
       $this->redirect('admin');
     }
   }
