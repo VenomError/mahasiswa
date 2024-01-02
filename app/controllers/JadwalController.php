@@ -105,6 +105,8 @@ class JadwalController extends MainController
       } catch (Exception $e) {
         $this->redirectData('admin', ['error' => $e->getMessage()]);
       }
+    } else {
+      $this->redirect('jadwal');
     }
   }
 
@@ -153,9 +155,10 @@ class JadwalController extends MainController
       } catch (Exception $e) {
         $this->redirectData('admin', ['error' => $e->getMessage()]);
       }
+    } else {
+      $this->redirect('mahasiswa');
     }
   }
-
   public function remove($id)
   {
     try {
