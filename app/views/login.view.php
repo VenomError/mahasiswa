@@ -26,12 +26,12 @@
               </div>
 
               <div class="card-body">
-                <form method="POST" action="#" class="needs-validation" novalidate="">
+                <form method="POST" action="<?= BASE_PATH ?>admin/login" class="needs-validation" novalidate="">
                   <div class="form-group">
-                    <label for="email">Email</label>
-                    <input id="email" type="email" class="form-control" name="email" tabindex="1" required autofocus>
+                    <label for="username">Username or ID</label>
+                    <input id="username" type="text" class="form-control" name="username" tabindex="1" required autofocus>
                     <div class="invalid-feedback">
-                      Please fill in your email
+                      Please fill in your Username or ID
                     </div>
                   </div>
 
@@ -39,7 +39,7 @@
                     <div class="d-block">
                       <label for="password" class="control-label">Password</label>
                       <div class="float-right">
-                        <a href="auth-forgot-password.html" class="text-small">
+                        <a href="<?= BASE_PATH ?>login/forgot" class="text-small">
                           Forgot Password?
                         </a>
                       </div>

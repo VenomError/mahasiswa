@@ -1,6 +1,6 @@
 <meta charset="UTF-8">
 <meta content="width=device-width, initial-scale=1, maximum-scale=1, shrink-to-fit=no" name="viewport">
-<title>Admin <?= $data['page'] ?> &rsaquo; <?= ucfirst($data['title']) ?> </title>
+<title><?= $data['page'] ?> &rsaquo; <?= ucfirst($data['title']) ?> </title>
 
 <!-- General CSS Files -->
 <link rel="stylesheet" href="<?= BASE_ASSETS ?>assets/modules/bootstrap/css/bootstrap.min.css">

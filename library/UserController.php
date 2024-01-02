@@ -6,7 +6,7 @@ use Controller;
 
 
 
-class MainController extends Controller
+class UserController extends Controller
 {
   protected $msg = array();
   protected $headLoc = "";
@@ -17,8 +17,8 @@ class MainController extends Controller
   public $page = "";
   public function __construct()
   {
-    if (empty($_SESSION['username']) and empty($_SESSION['password'])) {
-      $this->redirect('login');
+    if (isset($_SESSION['username']) and empty($_SESSION['password'])) {
+      $this->redirect('admin');
     }
   }
 

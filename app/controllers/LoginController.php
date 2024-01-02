@@ -2,9 +2,9 @@
 
 <?php
 
-use library\MainController;
+use library\UserController;
 
-class LoginController extends MainController
+class LoginController extends UserController
 {
   function __construct()
   {
@@ -13,13 +13,13 @@ class LoginController extends MainController
       'footer' => 'components/footer',
       'header' => 'components/header',
     ];
-    $this->getPage('Dashboard');
+    $this->getPage('Login');
   }
   public function index()
   {
     $data = [
-      "title" => "Login",
-      "page" => "Dashboard",
+      "title" => "Login Page",
+      "page" => "Login",
     ];
     $this->template('login', $data, 'login', $this->component);
   }
