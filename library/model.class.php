@@ -54,6 +54,20 @@ class Model
     }
     return $this;
   }
+  // public function where($conditions = [])
+  // {
+  //   if (!empty($conditions)) {
+  //     foreach ($conditions as $key => $value) {
+  //       if (!isset($this->data['where'][$key])) {
+  //         $this->data['where'][$key] = [];
+  //       }
+  //       $this->data['where'][$key][] = $value;
+  //     }
+  //   }
+  //   return $this;
+  // }
+
+
 
   public function orderBy($column, $order = "ASC")
   {
@@ -225,6 +239,21 @@ class Model
       $stmt->bindParam(":$key", $value);
     }
   }
+  // private function bindWhereParams($stmt)
+  // {
+  //   foreach ($this->data['where'] as $key => $values) {
+  //     if (is_array($values)) {
+  //       foreach ($values as $value) {
+  //         $stmt->bindParam(
+  //           ":$key",
+  //           $value
+  //         );
+  //       }
+  //     } else {
+  //       $stmt->bindParam(":$key", $values);
+  //     }
+  //   }
+  // }
 
   private function resetData()
   {

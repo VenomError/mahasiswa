@@ -18,9 +18,10 @@ class MainController extends Controller
   public function __construct()
   {
     if (empty($_SESSION['username']) and empty($_SESSION['password'])) {
-      $this->redirect('login');
+      $this->redirectData('login', ['error' => 'Please Login First']);
     }
   }
+
 
   public function getPage($viewName)
   {
