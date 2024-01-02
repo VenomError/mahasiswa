@@ -56,6 +56,8 @@ class LoginController extends UserController
           if ($mahasiswa[0]['password'] == $password) {
             $_SESSION['username'] = $username;
             $_SESSION['password'] = $password;
+            $_SESSION['database'] = 'mahasiswa';
+            $_SESSION['id_name'] = 'id_mahasiswa';
             $_SESSION['id'] = $mahasiswa[0]['id_mahasiswa'];
             $data = [
               'status' => 1
@@ -70,6 +72,8 @@ class LoginController extends UserController
           if ($dosen[0]['password'] == $password) {
             $_SESSION['username'] = $username;
             $_SESSION['password'] = $password;
+            $_SESSION['database'] = 'dosen';
+            $_SESSION['id_name'] = 'id_dosen';
             $_SESSION['id'] = $dosen[0]['id_dosen'];
             $data = [
               'status' => 1
@@ -84,6 +88,9 @@ class LoginController extends UserController
           if ($admin[0]['password'] == $password) {
             $_SESSION['username'] = $username;
             $_SESSION['password'] = $password;
+            $_SESSION['database'] = 'admin';
+            $_SESSION['id_name'] = 'id_admin';
+
             $_SESSION['id'] = $admin[0]['id_admin'];
             $data = [
               'status' => 1

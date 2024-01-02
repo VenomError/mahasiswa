@@ -29,9 +29,14 @@ class AdminController extends MainController
 
   public function logout()
   {
+    try {
+      $this->model($_SESSION['database'])->select()->where([($_SESSION['id_name']) => ($_SESSION['id'])])->update(['status' => 0]);
+    } catch (Exception $e) {
+    }
     unset($_SESSION['username']);
     unset($_SESSION['password']);
     unset($_SESSION['id']);
+    unset($_SESSION['id_name']);
     $this->redirectData('login', ['success' => 'Logout Success !']);
   }
 }
